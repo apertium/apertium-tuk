@@ -17,3 +17,4 @@ speller/editdist.default.txt -text
 speller/index.xml -text
 speller/strings.default.txt -text
 speller/words.default.txt -text
+texts/story.tuk.txt -text
