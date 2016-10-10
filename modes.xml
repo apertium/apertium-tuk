@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <modes>
 
-  <mode name="tuk-twol">
+  <mode name="tuk-twol" install="yes">
     <pipeline>
       <program name="hfst-strings2fst -S"/>
       <program name="hfst-compose-intersect">
@@ -11,7 +11,7 @@
     </pipeline>
   </mode>
 
-  <mode name="tuk-morph">
+  <mode name="tuk-morph" install="yes">
     <pipeline>
       <program name="lt-proc -w">
         <file name="tuk.automorf.bin"/>
@@ -19,7 +19,7 @@
     </pipeline>
   </mode>
 
-  <mode name="tuk-lexc">
+  <mode name="tuk-lexc" install="yes">
     <pipeline>
       <program name="hfst-proc -g">
         <file name=".deps/tuk.lexc.hfst"/>
@@ -28,7 +28,7 @@
   </mode>
 
 
-  <mode name="tuk-gener">
+  <mode name="tuk-gener" install="yes">
     <pipeline>
       <program name="lt-proc -g">
         <file name="tuk.autogen.bin"/>
@@ -36,7 +36,7 @@
     </pipeline>
   </mode>
 
-  <mode name="tuk-tagger">
+  <mode name="tuk-tagger" install="yes">
     <pipeline>
       <program name="lt-proc -w">
         <file name="tuk.automorf.bin"/>
@@ -47,7 +47,7 @@
     </pipeline>
   </mode>
 
-  <mode name="tuk-disam">
+  <mode name="tuk-disam" install="yes">
     <pipeline>
       <program name="lt-proc -w">
         <file name="tuk.automorf.bin"/>
