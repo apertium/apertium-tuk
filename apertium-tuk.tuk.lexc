@@ -41,29 +41,29 @@ Multichar_Symbols
 %<top%>     !
 %<al%>     !
 
-%<gna1%>    ! Verbal adverb: -{U}p
+%<gna_perf%>    ! Verbal adverb: -{U}p
  
-%<prc1%>    ! Participle:    -{U}p
-%<prc2%>    ! Participle:    -ý{Ä}n      =   Present participle
-%<prc3%>    ! Participle:    -{A}n       =   Past participle 
-%<prc8%>    ! Participle:    -j{A}k      =   Future participle
+%<prc_perf%>    ! Participle:    -{U}p
+%<gpr_rsub%>    ! Participle:    -ý{Ä}n      =   Present participle
+%<gpr_past%>    ! Participle:    -{A}n       =   Past participle 
+%<gpr_fut%>    ! Participle:    -j{A}k      =   Future participle
 
-%<ger1%>    ! Gerund:        -m{A}       =   Process noun
-%<ger2%>    ! Gerund:        -m{A}g      =   Indefinite "infinitive"
-%<ger3%>    ! Gerund:        -{A}n       =   Past gerund
-%<ger4%>    ! Gerund:        -{y}ş       =   Continuous "infinitive" (fact/manner)
-%<ger5%>    ! Gerund:        -ý{Ä}n      = 
-%<ger8%>    ! Gerund:        -j{A}g      =   Future gerund
+%<ger%>    ! Gerund:        -m{A}       =   Process noun
+%<ger_inf%>    ! Gerund:        -m{A}g      =   Indefinite "infinitive"
+%<ger_past%>    ! Gerund:        -{A}n       =   Past gerund
+%<ger_abst%>    ! Gerund:        -{y}ş       =   Continuous "infinitive" (fact/manner)
+%<ger_impf%>    ! Gerund:        -ý{Ä}n      = 
+%<ger_fut%>    ! Gerund:        -j{A}g      =   Future gerund
 
 %<pass%>    !
 %<caus%>    !
-%<oblig%>   !
+%<nec%>   !
 
 %<pres%>    ! Finite:        -ý{Ä}n      =   Short form of present
 %<perf%>    ! Finite:         
-%<past%>    ! Finite:        -d{Y}       =
+%<ifi%>    ! Finite:        -d{Y}       =
 %<evid%>    ! Finite:        -{y}pd{Y}r  =   Subjective (evidential) past indefinite
-%<cont%>    ! Finite:        -{y}{Ä}r
+%<prog%>    ! Finite:        -{y}{Ä}r
 %<aor%>     ! Finite:        -{A}r
 %<cond%>    ! Finite:        -s{A} 
 %<imp%>     !
@@ -153,7 +153,7 @@ LEXICON CLIT
 LEXICON CLIT-COP
 
 %+i%<cop%>: V-PERS-G2-NOSG3 ; 
-%+i%<cop%>%<past%>:%>d%{Y%} V-PERS-G2 ; 
+%+i%<cop%>%<ifi%>:%>d%{Y%} V-PERS-G2 ; 
 CLIT ;
 
 LEXICON V-PERS-G1
@@ -506,18 +506,24 @@ LEXICON CS
 LEXICON V-NONFIN-COMMON
 
 ! Gerunds
-%<ger1%>:%>m%{A%} SUBST ;
-%<ger4%>:%>{Y%}ş SUBST ;
-%<ger5%>:%>ý%{Ä%}n SUBST ;
-%<ger8%>:%>j%{A%}g CLIT-COP ;
+%<ger%>:%>m%{A%} SUBST ;
+%<ger_abst%>:%>{Y%}ş SUBST ;
+%<ger_impf%>:%>ý%{Ä%}n SUBST ;
+%<ger_fut%>:%>j%{A%}g CLIT-COP ;
+
+%<gpr_rsub%>:%>ý%{Ä%}n CLIT-COP ;
+%<gpr_fut%>:%>j%{A%}g CLIT-COP ;
 
 LEXICON V-NONFIN-NEG
 
 %<neg%>:%>m%{A%} V-NONFIN-COMMON ; 
-%<ger2%>:%>m%{A%}g SUBST ;
-%<neg%>%<ger2%>:%>m%{A%}zl%{Y%}g SUBST ;
-%<ger3%>:%>%{A%}n SUBST ;
-%<neg%>%<ger3%>:%>m%{A%}d%{Y%}g SUBST ;
+%<ger_inf%>:%>m%{A%}g SUBST ;
+%<neg%>%<ger_inf%>:%>m%{A%}zl%{Y%}g SUBST ;
+%<ger_past%>:%>%{A%}n SUBST ;
+%<neg%>%<ger_past%>:%>m%{A%}d%{Y%}g SUBST ;
+%<gpr_past%>:%>%{A%}n CLIT-COP ;
+%<neg%>%<gpr_past%>:%>m%{A%}d%{Y%}g SUBST ;
+
 V-NONFIN-COMMON ; 
 
 LEXICON V-NONFIN
@@ -525,27 +531,26 @@ LEXICON V-NONFIN
 ! Gerunds
 
 ! Participles
-%<prc1%>:%>%{y%}p CLIT-COP ;
-%<prc2%>:%>ý%{Ä%}n CLIT-COP ;
-%<prc3%>:%>%{A%}n CLIT-COP ;
-%<prc8%>:%>j%{A%}g CLIT-COP ;
-%<neg%>%<prc1%>:%>m%{Ä%}n CLIT-COP ;
+%<prc_perf%>:%>%{y%}p CLIT-COP ;
+%<neg%>%<prc_perf%>:%>m%{Ä%}n CLIT-COP ;
 
 ! Verbal adverbs
-%<gna1%>:%>%{y%}p CLIT-COP ;
-%<neg%>%<gna1%>:%>m%{Ä%}n CLIT-COP ;
+%<gna_perf%>:%>%{y%}p CLIT-COP ;
+%<neg%>%<gna_perf%>:%>m%{Ä%}n CLIT-COP ;
+
 
 V-NONFIN-NEG ; 
 
 LEXICON V-FIN-COMMON
 
-%<past%>:%>d%{U%} V-PERS-G2 ;
+%<ifi%>:%>d%{U%} V-PERS-G2 ;
+%<ifi%>%<evid%>:%>%{y%}pd%{U%} V-PERS-G2 ;
 %<imp%>: V-PERS-G3 ;
 %<cond%>:%>s%{A%} V-PERS-G2 ;
-%<cont%>:%>ý%{Ä%}r V-PERS-G1 ;
+%<prog%>:%>ý%{Ä%}r V-PERS-G1 ;
 %<pres%>:%>ý%{Ä%} V-PERS-G5 ;
 %<fut%>:%>j%{A%}g V-PERS-G2 ;
-%<oblig%>:%>m%{A%}l%{Y%} V-PERS-G2 ; 
+%<nec%>:%>m%{A%}l%{Y%} V-PERS-G2 ; 
 %<aor%>:%>%{A%}r V-PERS-G2 ;  ! FIXME: check this form, does {A} delete after vowel ?
 %<evid%>:%>%{y%}pd%{Y%}r V-PERS-G1 ; 
 
@@ -603,7 +608,7 @@ LEXICON V-TV-CAUS ! For 'irregular/fossilised' causatives of transitive verbs
 
 LEXICON VAUX-IMPF 
 
-%<vaux%>%<cont%>: V-PERS-G2 ; 
+%<vaux%>%<prog%>: V-PERS-G2 ; 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!                                                                           !!
