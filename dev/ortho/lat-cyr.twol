@@ -83,12 +83,6 @@ Alphabet
   z:з
 
 
- %{й%}:0
- %{й%}:j
-
- %{ˈ%}:0
- %{ˈ%}:ˈ
-
  ;
 
 
@@ -96,93 +90,11 @@ Sets
 
 Vow = и ү е э ө а о у ы ;
 
-!letter = ء ئ ا ە ب پ ت ج چ خ د ر ز ژ س ش غ ف ق ك گ ڭ ل م ن ھ و ۇ ۅ ۉ ۋ ى ي ;
-
-backVow = а о ы у
-          А О Ы У ;
-
-Cons = б в г д ж з й к л м н п р с т ф х ц ч ш щ
-       Б В Г Д Ж З Й К Л М Н П Р С Т Ф Х Ц Ч Ш Щ ;
-
-frontConsCyr = к г
-               К Г ;
-
-Nasal = Н М Ң
-        н м ң ;
-
-!frontLetter = ك گ ە ۅ ۉ ;
-
-frontSound = k ɡ ɣ ŋ e i ø y ;
-
-!backLetter = ق ع ا و ۇ ;
-
-backSound = q ʁ ɢ ɴ ɑ ɯ o u ;
-
 Rules
 
-"%{й%}:j after vowels except е"
-%{й%}:j <=> [ Vow: - [ э: | е: ] ]/%{ˈ%}: _ ;
-
-"к г ң in the context of back vowels"
-Cx:Cy <=> backVow:/%{ˈ%}: _ ;
-          _ backVow:/%{ˈ%}: ;
-      except
-          .#. а:/%{ˈ%}: _ (%{й%}:) е:/%{ˈ%}: ;  ! аке:ɑˈke
-          .#. б:/%{ˈ%}: (%{й%}:) е:/%{ˈ%}: _ а:/%{ˈ%}: ;  ! Бегайым:beɣɑjɯm
-          Nasal:/%{ˈ%}: _ ;
-!          .#. _ (Cons:*/%{ˈ%}:*) Vow: ;
-          ! keep in mind if modifying this rule:
-          ! - байке:bɑjke
-          ! - багелек:bɑɣelek
-      where Cx in ( к г ң )
-            Cy in ( q ʁ ɴ )
-      matched ;
-
-"г is a stop after nasals"
-г:Cy <=> Vx: Cons:*/%{ˈ%}: Nasal:/%{ˈ%}: _ ;
-!         .#. _ (Cons:*/%{ˈ%}:*) Vx: ;         ! грил
-     where Vx in ( и ү е э ө а о у ы )
-           Cy in ( ɡ ɡ ɡ ɡ ɡ ɢ ɢ ɢ ɢ )
+"Yot letters"
+y:Vx <=> _ Vy: ;
+     where Vx in ( я ё ю е )
+           Vy in ( a o u e )
      matched ;
 
-"к and г in onset clusters (loanwords)"
-Cx:Cy <=> .#. (%{ˈ%}:) _ Cons:/%{ˈ%}: ;
-      where Cx in ( к г )
-            Cy in ( k ɡ )
-      matched ;
-
-"stress on last syllable"
-%{ˈ%}:ˈ <=>  _ Cons:/%{ˈ%}: Vow:/%{ˈ%}: (Vow:/%{ˈ%}:) Cons:*/%{ˈ%}: .#. ;
-            .#. _ Cons:*/%{ˈ%}: Vow:/%{ˈ%}: (Vow:/%{ˈ%}:) Cons:/%{ˈ%}:* .#. ;
-        except
-            .#. Cons:/%{ˈ%}: Cons:*/%{ˈ%}: _ ;
-
-"б as β"
-б:β <=> Vow:/%{ˈ%}: _ Vow:/%{ˈ%}: ;
-
-"dark ɫ"
-л:ɫ <=> backVow:/%{ˈ%}: _ ;
-        _ backVow:/%{ˈ%}: ;
-    except
-        :j (%{ˈ%}:) _ ;
-        _ ь: ;
-
-"second of long vowel as ː"
-Vx:ː <=> Vy:/%{ˈ%}: _ ;
-     where Vy in ( ү э ө а о у )
-           Vx in ( ү э ө а о у )
-     matched ;
-
-"ж as ʒ only after д"
-ж:ʒ <=> д:/%{ˈ%}: _ ;
-
-! remaining issues:
-!  - [x] грузин *ɢɾuˈzin / гладиатор *ɢɫɑdiɑtor / группа *ɢɾuppɑ
-!  - [x] Чжин *ʧˈʤin / план *pˈɫɑn
-!  - [x] джентльмен *dʤentlʲmen
-!  - теңир *teɴiɾ
-!  - stress before {E}, {B}{I}
-!  - stress in Russian words
-!  - бекем *—
-!  - [x] поэзиянын *poːzijɑˈnɯn
-!  - [x] поезд *poezd

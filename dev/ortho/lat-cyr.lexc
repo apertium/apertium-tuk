@@ -1,20 +1,17 @@
 Multichar_Symbols
 
-%{ˈ%}
 %{й%}
-%{☭%}
 
 LEXICON Root
 
-:%{ˈ%} Alpha ;
 Punct ;
 !Exceptions ;
 Digits ;
+Alpha ;
 
 LEXICON AlphaLoop
 
-:%{ˈ%} Alpha ;
-!Punct ;
+Alpha ;
  # ;
 
 LEXICON Alpha
